@@ -1,0 +1,52 @@
+.input__wrapper {
+
+  &.input--invalid {
+    &:after{
+      @include icon($icon-ttt-standard-close, $tc-melagrana);
+    }
+    border-top-color: $tc-melagrana;
+  }
+
+  &.input--valid {
+    &:after{
+      @include icon($icon-ttt-type-task, $input--valid);
+    }
+    border-top: 3px solid $input--valid;
+  }
+
+  border-bottom: 1px solid rgba(0,0,0,.2);
+  border-left: 1px solid rgba(0,0,0,.2);
+  border-right: 1px solid rgba(0,0,0,.2);
+  border-top: 3px solid $tc-sun;
+  margin: 0 0 15px;
+  min-height: 56px;
+  overflow: hidden;
+  padding: 0 10px;
+  position: relative;
+  .input__label {
+    color: $tc-warm-grey;
+    display: block;
+    font-size: 12px;
+    font-weight: 400;
+    margin-bottom: 0;
+    padding: 9px 0 2px;
+  }
+  .input__field {
+    border: none;
+    display: block;
+    color: $tc-warm-grey;
+    font-size: 18px;
+    line-height: 24px;
+    line-height: 24px\9;
+    height: 24px;
+    padding-left: 0;
+    right: 0;
+    width: 100%;
+    padding-right: 40px;
+
+    &:focus, &:invalid {
+      outline: 0;
+      box-shadow: none;
+    }
+  }
+}

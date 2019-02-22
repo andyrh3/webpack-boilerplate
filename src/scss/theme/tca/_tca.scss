@@ -1,0 +1,153 @@
+@import "fonts";
+@import "form";
+
+body{
+  @extend .base-font;
+}
+
+.base-font {
+  font-family: MissionGothicRegular, serif;
+  color: $tc-warm-grey;
+  font-size: 14px;
+}
+
+.panel {
+  border-top: 3px solid #f9ac00;
+  box-shadow: 0 3px 5px -1px rgba(0, 0, 0, .3);
+  padding: 15px;
+  background-color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-justify-content: center;
+  margin: 15px 0px;
+  padding: 20px 30px;
+  clear: both;
+  display: block;
+  .input__wrapper{
+    margin: 0 0 15px
+  }
+  .btn {
+    margin:0;
+  }
+}
+
+.btn{
+  font-family: MissionGothicRegular, Serif;
+  background-color: $tc-curacao;
+  border: 1px solid $tc-curacao;
+  border-radius: 4px;
+  color: $off-white;
+  display: block;
+  font-size: 18px;
+  line-height: 24px;
+  height: auto;
+  margin: 10px auto;
+  padding: 16px 20px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+
+  &--sm{
+    margin: 4px auto;
+    padding: 4px 14px;
+    font-size: 14px;
+  }
+
+  &.--submitted{
+    > i {
+      width: 30px;
+      font-size: 30px;
+      height: 30px;
+      line-height: 30px;
+      box-sizing: content-box;
+      vertical-align: middle;
+      display: inline-block;
+      position: relative;
+      margin-left:6px;
+      &:before {
+        @include icon($icon-ttt-standard-wait, $white);
+        animation: spin 1s linear 0s infinite reverse;
+        -moz-animation: 1s linear 0s reverse none infinite spin;
+        -webkit-animation: spin 1s linear 0s infinite reverse;
+        -o-animation: spin 1s linear 0s infinite reverse;
+        -webkit-transform: translateY(0%);
+        transform: translateY(0%);
+        right:0px;
+        top:0px;
+        font-size: 30px;
+      }
+
+      &:after {
+        @include icon($icon-ttt-standard-wait-bg, $white-40);
+        -webkit-transform: translateY(0%);
+        transform: translateY(0%);
+        right:0px;
+        top:0px;
+        font-size: 30px;
+      }
+    }
+  }
+
+  @keyframes spin {
+    0% { transform: rotate(360deg); }
+    100% { transform: rotate(0deg); }
+  }
+  @-moz-keyframes spin {
+    0% { -moz-transform: rotate(360deg); }
+    100% { -moz-transform: rotate(0deg); }
+  }
+  @-webkit-keyframes spin {
+    0% {-webkit-transform: rotate(360deg); }
+    100% { -webkit-transform: rotate(0deg); }
+  }
+  @-o-keyframes spin {
+    0% { -o-transform: rotate(360deg); }
+    100% { -o-transform: rotate(0deg); }
+  }
+
+  @include breakpoint(phablet) {
+    display: inline-block;
+  }
+
+  &:hover{
+    background-color: darken($tc-curacao, 5%);
+    border: 1px solid darken($tc-curacao, 5%);
+    color: $off-white;
+    text-decoration: none;
+  }
+  &--hollow{
+    background-color: rgba(0, 0, 0, 0);
+    border: 1px solid rgba(0, 0, 0, 0.4);
+    color: $tc-warm-grey;
+    &:hover{
+      background-color: rgba(0, 0, 0, 0.05);
+      border: 1px solid rgba(0, 0, 0, 0.4);
+      color: $tc-warm-grey;
+    }
+
+    &--white{
+      color: $off-white;
+      background-color: rgba(0, 0, 0, 0);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.4);
+      }
+
+    }
+
+  }
+  &:disabled, &[disabled]{
+    background-color: $runway-smoke;
+    border: 1px solid $runway-smoke;
+  }
+
+}
